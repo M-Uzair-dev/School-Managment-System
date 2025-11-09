@@ -20,24 +20,25 @@ It’s a clean and easy-to-run project meant for learning and demonstrating fund
 ## File Structure
 
 ```
-src/
-  models/        # JS classes for Student, Teacher, Person, etc.
-  services/      # Logic for attendance, finance, etc.
-  ui/            # UI components and interactions
-  charts/        # Chart.js setup for visualizations
-  data/          # Demo JSON data files
-  main.js        # App entry point
-  index.html     # Main HTML file
+css/
+  styles.css
 
-README.md        # Project overview
+js/
+  Employee.js
+  Janitor.js
+  Person.js
+  SchoolManager.js
+  SecurityGuard.js
+  Student.js
+  Supervisor.js
+  Teacher.js
+
+app.js
+index.html
+README.md
+
 ```
 
 ## How to Run
 
-Simply open `index.html` in your browser, or use a simple static server like:
-
-```bash
-npx http-server
-```
-
-Then visit `http://localhost:8080` to use the app.
+Simply open `index.html` in your browser.

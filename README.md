@@ -1,144 +1,43 @@
-# School Management System (Frontend-only)
+# School Management System
 
-**Status:** Prototype — frontend-only, no backend or database.
+## Description
 
-## One-line summary
+This is a simple **frontend-only web application** that demonstrates a school management system. It allows managing students, teachers, classes, attendance, and financial data — all running entirely in the browser. There’s no backend or database; data can be handled using local storage or static JSON files.
 
-A minimal, opinionated school management web app built purely on the frontend to demonstrate OOP principles, basic financial calculations (fees & salaries), and interactive statistics using Chart.js. Clean, beginner-friendly UI and code — intended as a learning project and a polished portfolio piece.
+The main goal is to show basic **Object-Oriented Programming (OOP)** principles like encapsulation, inheritance, polymorphism, and abstraction while keeping the code easy to understand for beginners.
 
-## Plain description (no fluff)
+## Introduction
 
-This is a school management UI that runs entirely in the browser. It models students, teachers, classes, and finances using object-oriented JavaScript so each class demonstrates one or more OOP pillars (encapsulation, inheritance, polymorphism, abstraction). Data is stored in-memory (JSON files or localStorage) — there is intentionally no backend so you can study the architecture, logic, and UI without server noise.
+The project models a small school system where:
 
-## Features
+* Students and teachers are represented using classes.
+* Financial calculations include student fees and teacher salaries.
+* Simple charts visualize the school’s data using Chart.js.
+* Everything runs in the browser without any server setup.
 
-* Student and teacher CRUD (in-memory)
-* Class/section management and student assignment
-* Basic attendance marking
-* Fees module: invoice creation, payment status, overdue detection
-* Payroll module: salary calculation, tax & deductions demo
-* Dashboard with Chart.js visualizations (fees collected, attendance, payroll)
-* Export/import JSON seed files for demo data
-* Responsive, modern UI with accessible components
+It’s a clean and easy-to-run project meant for learning and demonstrating fundamental concepts of both OOP and frontend development.
 
-## Why this exists (brutal truth)
-
-Most tutorials either show a fancy UI or teach OOP — rarely both. This repo forces you to connect object design to real UX and calculations. If your implementation is fluff without tests or real calculations, it’s useless; this one comes with actual formulas and demo scenarios so you can actually reason about trade-offs.
-
-## OOP mapping (what to look for)
-
-* **Encapsulation:** Models expose methods for mutation (e.g., `student.markAttendance(date)`) while keeping internals private where possible.
-* **Inheritance:** Common `Person` base class extended by `Student` and `Teacher`.
-* **Polymorphism:** `calculatePay()` on `Teacher` subclasses (e.g., `PermanentTeacher`, `AdjunctTeacher`) behaves differently.
-* **Abstraction:** High-level services (e.g., `FinancialService`) provide simple APIs while hiding calculation details.
-
-## Tech stack
-
-* HTML, CSS (Tailwind-ready utility classes supported) — no opinionated CSS framework required
-* JavaScript (ES2022) — modular, class-based approach
-* Chart.js for charts
-* Vite for dev server and build (or plain static HTML for simplest setup)
-* LocalStorage / JSON seed files for persistence
-
-## Getting started
-
-### Prerequisites
-
-* Node.js 18+ (recommended) if using the Vite setup
-
-### Install & run (Vite)
-
-```bash
-# install
-npm install
-
-# dev server
-npm run dev
-
-# build
-npm run build
-
-# preview production build
-npm run preview
-```
-
-### Plain static (no Node.js)
-
-Open `index.html` in a modern browser. Some features (module imports) may require a local static server (e.g., `npx http-server`).
-
-## Project structure (recommended)
+## File Structure
 
 ```
 src/
-  models/          # JS classes (Person, Student, Teacher, Invoice, Payroll etc.)
-  services/        # Business logic (FinancialService, AttendanceService)
-  ui/              # Presentational components
-  store/           # in-memory store & localStorage adapter
-  charts/          # chart setup and utilities
-  data/            # demo JSON files
-  index.html
-  main.js
+  models/        # JS classes for Student, Teacher, Person, etc.
+  services/      # Logic for attendance, finance, etc.
+  ui/            # UI components and interactions
+  charts/        # Chart.js setup for visualizations
+  data/          # Demo JSON data files
+  main.js        # App entry point
+  index.html     # Main HTML file
 
-tests/             # unit tests (jest/vitest) — optional but encouraged
-README.md
+README.md        # Project overview
 ```
 
-## Financial calculations — what’s included
+## How to Run
 
-* Fee invoices: due date, partial payments, overdue penalty (configurable)
-* Payroll: base pay, allowances, tax bracket simulation, deductions, net pay
-* Demo scenarios in `data/financial-demo.json` so outputs are reproducible
+Simply open `index.html` in your browser, or use a simple static server like:
 
-## Charts & dashboard
+```bash
+npx http-server
+```
 
-Charts use Chart.js. Dashboard demonstrates:
-
-* Fees collected over time (bar/line)
-* Attendance percentage (doughnut)
-* Payroll distribution (bar)
-
-## How to extend this into a real app (notes)
-
-* Replace in-memory store with an API + database (Postgres / Firebase). Keep the same service interfaces so UI changes are minimal.
-* Add authentication & authorization (roles: admin, teacher, accountant)
-* Move heavy calculations server-side if data grows or for auditability
-
-## Testing
-
-* Unit-test models and services. Financial calculations must have ≥90% coverage.
-* UI component snapshots (optional).
-
-## Accessibility
-
-* Focus on semantic HTML, keyboard navigation, and ARIA labels for interactive widgets (charts, modals, forms).
-
-## Deployment
-
-* Static host (Netlify, GitHub Pages, Vercel) if using Vite build output.
-
-## TODO / Roadmap
-
-* Add CSV export for payroll and invoices
-* Add automated demo data seeding with scenarios
-* Add role-based views and permissions
-* Add E2E tests using Playwright
-
-## Contribution
-
-This repo is intended as a learning and portfolio project. If you want to contribute:
-
-1. Fork the repo
-2. Create a feature branch
-3. Open a PR with changes and rationale (why does this make the models or UX better?)
-
-## License
-
-MIT — do whatever but credit the work if you publish it publicly.
-
-## Contact / author
-
-Prototype by Uzair Manan — treat this as a lab: break things, refactor, and then make them bulletproof.
-
----
-
-If you want, I can also generate a concise `CONTRIBUTING.md`, unit-test stubs for the financial calculations, or a sample `data/financial-demo.json`. Tell me which and I’ll dump it into the repo.
+Then visit `http://localhost:8080` to use the app.
